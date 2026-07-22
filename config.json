@@ -1,0 +1,78 @@
+{
+  "cerques": [
+    {
+      "id": "exemple_golf_wallapop",
+      "nom": "Golf GTI Mk7.5 (Wallapop)",
+      "site": "wallapop",
+      "activa": false,
+      "url": "ENGANXA_AQUI_LA_URL_DE_L_API_DE_WALLAPOP (vegeu README, pas Wallapop)"
+    },
+    {
+      "id": "exemple_golf_cochesnet",
+      "nom": "Golf GTI Mk7.5 (Coches.net)",
+      "site": "generic",
+      "activa": false,
+      "url": "https://www.coches.net/segunda-mano/?bodyType=&fu0=1&Text=golf+gti",
+      "selectors": {
+        "contenidor": "article.mt-ListAd, div[data-ad-id]",
+        "titol": ".mt-CardAd-titleContainer, h3",
+        "preu": ".mt-CardAd-price, [class*='price']",
+        "link": "a",
+        "link_attr": "href",
+        "link_base": "https://www.coches.net"
+      }
+    },
+    {
+      "id": "exemple_golf_autoscout",
+      "nom": "Golf GTI Mk7.5 (AutoScout24)",
+      "site": "generic",
+      "activa": false,
+      "url": "https://www.autoscout24.es/lst/volkswagen/golf?ustate=N%2CU&sort=age&desc=1",
+      "selectors": {
+        "contenidor": "article[data-testid='list-item']",
+        "titol": "h2, [data-testid='sc-listing-title']",
+        "preu": "[data-testid='regular-price']",
+        "link": "a",
+        "link_attr": "href",
+        "link_base": "https://www.autoscout24.es"
+      }
+    },
+    {
+      "id": "exemple_golf_autohero",
+      "nom": "Golf GTI Mk7.5 (Autohero)",
+      "site": "generic",
+      "activa": false,
+      "url": "https://www.autohero.com/es/search?make=volkswagen&model=golf",
+      "selectors": {
+        "contenidor": "a[data-testid='vehicle-card'], article",
+        "titol": "[data-testid='vehicle-title'], h3",
+        "preu": "[data-testid='vehicle-price'], [class*='price']",
+        "link": "a",
+        "link_attr": "href",
+        "link_base": "https://www.autohero.com"
+      }
+    },
+    {
+      "id": "exemple_golf_milanuncios",
+      "nom": "Golf GTI Mk7.5 (Milanuncios)",
+      "site": "generic",
+      "activa": false,
+      "url": "https://www.milanuncios.com/coches-de-mano/golf-gti.htm",
+      "selectors": {
+        "contenidor": "article, div[class*='ma-AdCardV2']",
+        "titol": "[class*='title'], h2, h3",
+        "preu": "[class*='price']",
+        "link": "a",
+        "link_attr": "href",
+        "link_base": "https://www.milanuncios.com"
+      }
+    },
+    {
+      "id": "exemple_peca_wallapop",
+      "nom": "Peça de recanvi (Wallapop)",
+      "site": "wallapop",
+      "activa": false,
+      "url": "ENGANXA_AQUI_LA_URL_DE_L_API_DE_WALLAPOP_PER_A_LA_CERCA_DE_LA_PECA"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+name: Seguiment de cotxes
+
+on:
+  # Permet executar-ho manualment des de la pestanya "Actions" de GitHub,
+  # clicant el botó "Run workflow". No cal terminal ni permisos d'admin.
+  workflow_dispatch:
+
+  # Si en algun moment vols que es faci sol cada dia, descomenta això
+  # (hora en UTC; les 7:00 UTC són les 9:00 a Catalunya a l'estiu):
+  # schedule:
+  #   - cron: '0 7 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  cerca:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixa el repositori
+        uses: actions/checkout@v4
+
+      - name: Instal·la Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instal·la dependències
+        run: pip install -r requirements.txt
+
+      - name: Executa la cerca
+        run: python seguiment.py
+        env:
+          CI: "true"
+
+      - name: Desa l'informe i l'estat al repositori
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state.json docs/index.html
+          git commit -m "Actualitza informe $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "Sense canvis a desar"
+          git push
